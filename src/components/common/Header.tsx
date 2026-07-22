@@ -26,7 +26,7 @@ export const Header = () => {
         {/* LOGO */}
         <div
           onClick={() => navigate("/")}
-          className="w-[100px] h-[50px] text-[50px] cursor-pointer flex items-center justify-start"
+          className="w-[110px] h-[85px] cursor-pointer flex items-center justify-center"
         >
           <Logo />
         </div>
@@ -46,7 +46,7 @@ export const Header = () => {
         </div>
 
         {/* Icon */}
-        <div className="hidden lg:flex items-center gap-4 relative">
+        <div className="hidden lg:flex items-center gap-7 relative">
           <div className="flex flex-col items-center cursor-pointer text-[#efefef] hover:text-[#9a542c]">
             <AiOutlineHeart className="w-[30px] h-[30px]" />
             <p className="text-[15px]"> Yêu thích</p>
