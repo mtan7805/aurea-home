@@ -1,4 +1,4 @@
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaMapMarkerAlt, FaRegCopyright } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import type { IContactItem, IFooterSection } from "../types/footer";
@@ -7,12 +7,12 @@ export const contactList: IContactItem[] = [
   {
     id: 1,
     icon: FaMapMarkerAlt,
-    text: "Nguyên Xá, Bắc Từ Liêm, Hà Nội",
+    text: "Cầu Diễn, Bắc Từ Liêm, Hà Nội",
   },
   {
     id: 2,
     icon: MdEmail,
-    text: "aureahome@example.com",
+    text: "aureahome@gmail.com",
   },
   {
     id: 3,
