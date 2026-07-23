@@ -13,9 +13,9 @@ const Discounted = () => {
       <div className="w-full flex xl:relative">
         <img
           src={discountBannerConfig.titleImage}
-          className="hidden xl:flex z-9"
+          className="hidden xl:block z-9 relative"
         />
-        <div className="w-full flex flex-col sm:flex-row items-center justify-around gap-4 bg-white py-3.5 px-6 md:px-8 rounded-xl xl:absolute xl:bottom-0 xl:left-[35px] xl:pl-[280px] shadow-sm border border-gray-100">
+        <div className="w-full flex flex-col sm:flex-row items-center justify-around gap-4 bg-white py-3.5 px-6 md:px-8 rounded-xl xl:absolute xl:bottom-0 xl:left-0 xl:right-0 xl:pl-[270px] shadow-sm border border-gray-100">
           <Countdown />
           <p className="text-[22px] md:text-[28px] text-primary font-bold tracking-tight">
             {discountBannerConfig.titleText}

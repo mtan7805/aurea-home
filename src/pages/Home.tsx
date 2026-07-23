@@ -3,6 +3,7 @@ import Banner from "../components/home/Banner";
 import { Category } from "../components/home/Category";
 import { CategoryAdvertise } from "../components/home/CategoryAdvertise";
 import Discounted from "../components/home/Discounted";
+import Process from "../components/home/Process";
 
 export const Home = () => {
   return (
@@ -12,6 +13,7 @@ export const Home = () => {
       <Category />
       <CategoryAdvertise />
       <Discounted />
+      <Process />
     </div>
   );
 };

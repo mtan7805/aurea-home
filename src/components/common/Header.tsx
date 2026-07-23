@@ -20,7 +20,7 @@ export const Header = () => {
         location.pathname === "/"
           ? "bg-[#0a0400]/30 backdrop-blur-md"
           : "bg-[#885e45]"
-      } px-5 md:px-[50px] lg:px-[130px] py-2 shadow-md fixed z-10`}
+      } px-5 md:px-[50px] lg:px-[130px] py-2 shadow-md fixed z-100`}
     >
       <div className="flex items-center justify-between mb-3 flex-wrap gap-4 ">
         {/* LOGO */}
