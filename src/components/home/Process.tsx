@@ -2,7 +2,7 @@ import { processList } from "../../data/processData";
 
 const Process = () => {
   return (
-    <section className="w-full min-h-screen px-5 md:px-12 lg:px-28 py-16 flex flex-col justify-center items-center bg-[#f4f3f3]">
+    <section id="process" className="w-full min-h-screen px-5 md:px-12 lg:px-28 py-16 flex flex-col justify-center items-center bg-[#f4f3f3]">
       {/* Header Title */}
       <div className="flex flex-col items-center justify-center gap-3 text-center mb-12 lg:mb-16">
         <p className="w-fit text-xl md:text-3xl font-semibold text-primary py-1 border-b-2 border-primary tracking-wider uppercase">

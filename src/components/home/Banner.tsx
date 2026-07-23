@@ -17,7 +17,7 @@ const Banner = () => {
   const [isEnd, setIsEnd] = useState(false);
 
   return (
-    <div className="w-full relative top-0 left-0 flex items-center justify-center">
+    <div id="banner" className="w-full relative top-0 left-0 flex items-center justify-center">
       {/* Nút Prev */}
       <button
         onClick={() => swiperInstance?.slidePrev()}

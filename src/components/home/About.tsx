@@ -5,7 +5,7 @@ const About = () => {
   const { subtitle, title, description, imageUrl, inventories } = aboutData;
 
   return (
-    <div className="w-full px-[20px] md:px-[50px] lg:px-[130px] py-[20px] flex flex-col lg:flex-row items-center justify-between gap-[100px]">
+    <div id="about" className="w-full px-[20px] md:px-[50px] lg:px-[130px] py-[20px] flex flex-col lg:flex-row items-center justify-between gap-[100px]">
       <div data-aos="fade-down" className="w-full lg:w-3/5 flex flex-col gap-5">
         <p className="w-fit text-primary text-[18px] md:text-[20px] py-2 border-b-[2px] border-primary font-semibold">
           {subtitle}

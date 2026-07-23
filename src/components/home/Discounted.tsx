@@ -6,6 +6,7 @@ import Countdown from "./Countdown";
 const Discounted = () => {
   return (
     <div
+      id="discount"
       style={{ backgroundImage: `url("${discountBannerConfig.bgImage}")` }}
       className="w-full xl:h-[700px] px-[20px] md:px-[50px] xl:px-[130px] py-[50px]"
     >

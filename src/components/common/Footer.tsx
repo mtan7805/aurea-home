@@ -4,7 +4,7 @@ import { contactList, footerSections } from "../../data/footerData";
 
 const Footer = () => {
   return (
-    <div className="w-full px-[20px] md:px-[50px] lg:px-[130px] py-[50px] bg-[#1c120c] border-t-[1px] border-t-[#9a542c] flex flex-col gap-[50px] sm:flex-row sm:items-start sm:justify-between items-center justify-center">
+    <div id="footer" className="w-full px-[20px] md:px-[50px] lg:px-[130px] py-[50px] bg-[#1c120c] border-t-[1px] border-t-[#9a542c] flex flex-col gap-[50px] sm:flex-row sm:items-start sm:justify-between items-center justify-center">
       {/* Cột trái: Logo & Thông tin liên hệ */}
       <div className="flex md:w-[30%] sm:w-[50%] w-full flex-col gap-[12px]">
         <div className="w-[115px] h-[75px] flex items-center justify-start cursor-pointer">
