@@ -1,4 +1,4 @@
-import { FaMapMarkerAlt, FaRegCopyright } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import type { IContactItem, IFooterSection } from "../types/footer";

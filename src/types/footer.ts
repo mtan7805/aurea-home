@@ -2,7 +2,7 @@ import type { IconType } from "react-icons";
 
 export interface IContactItem {
   id: number;
-  icon?: IconType;
+  icon: IconType;
   text: string;
 }
 
