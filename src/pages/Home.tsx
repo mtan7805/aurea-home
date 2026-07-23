@@ -5,6 +5,7 @@ import { CategoryAdvertise } from "../components/home/CategoryAdvertise";
 import Discounted from "../components/home/Discounted";
 import Process from "../components/home/Process";
 import Reason from "../components/home/Reason";
+import ReComment from "../components/home/ReComment";
 import FAQ from "../components/home/FAQ";
 
 export const Home = () => {
@@ -18,6 +19,7 @@ export const Home = () => {
       <Process />
       <Reason />
       <FAQ />
+      <ReComment />
     </div>
   );
 };

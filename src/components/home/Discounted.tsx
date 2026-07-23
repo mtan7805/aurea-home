@@ -8,7 +8,7 @@ const Discounted = () => {
     <div
       id="discount"
       style={{ backgroundImage: `url("${discountBannerConfig.bgImage}")` }}
-      className="w-full xl:h-[700px] px-[20px] md:px-[50px] xl:px-[130px] py-[50px]"
+      className="w-full bg-cover bg-center px-[20px] md:px-[50px] xl:px-[130px] pt-[50px] pb-[80px] md:pb-[110px] lg:pb-[130px]"
     >
       {/* Title & Countdown Header */}
       <div className="w-full flex xl:relative">
@@ -24,7 +24,7 @@ const Discounted = () => {
         </div>
       </div>
 
-      <div className="mt-[50px]">
+      <div className="mt-[50px] ">
         <ProductList products={listProduct} />
       </div>
     </div>

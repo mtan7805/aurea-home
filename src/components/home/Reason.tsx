@@ -1,4 +1,3 @@
-import React from "react";
 import { FiCheckCircle } from "react-icons/fi";
 import { reasonData } from "../../data/reasonData";
 
