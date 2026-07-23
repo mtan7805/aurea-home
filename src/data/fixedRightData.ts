@@ -13,12 +13,12 @@ export const fixedRightIcons: IFixedIcon[] = [
     id: 2,
     name: "TikTok",
     icon: FaTiktok,
-    link: "https://www.tiktok.com",
+    link: "",
   },
   {
     id: 3,
     name: "Messenger",
     icon: FaFacebookMessenger,
-    link: "https://m.me",
+    link: "",
   },
 ];

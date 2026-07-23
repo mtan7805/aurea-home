@@ -29,8 +29,8 @@ const Counter = ({ total, title }: CounterProps) => {
   }, [total]);
 
   return (
-    <div className="w-full flex flex-col items-center justify-center p-6 bg-[#f5ebe6] border-b-4 border-[#ad7555] rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-      <p className="text-[32px] md:text-[40px] font-bold text-[#ad7555] leading-none mb-2">
+    <div className="w-full flex flex-col items-center justify-center p-6 bg-[#f5ebe6] border-b-4 border-primary rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+      <p className="text-[32px] md:text-[40px] font-bold text-primary leading-none mb-2">
         {count.toLocaleString()}+
       </p>
       <p className="text-[14px] md:text-[16px] text-center text-[#555] font-medium leading-snug">

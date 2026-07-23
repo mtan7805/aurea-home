@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div className="w-full px-[20px] md:px-[50px] lg:px-[130px] py-[20px] flex flex-col lg:flex-row items-center justify-between gap-[100px]">
       <div data-aos="fade-down" className="w-full lg:w-3/5 flex flex-col gap-5">
-        <p className="w-fit text-[#ad7555] text-[18px] md:text-[20px] py-2 border-b-[2px] border-[#ad7555] font-semibold">
+        <p className="w-fit text-primary text-[18px] md:text-[20px] py-2 border-b-[2px] border-primary font-semibold">
           {subtitle}
         </p>
         <p className="text-[30px] md:text-[40px] lg:text-[48px] font-bold leading-[140%]">

@@ -20,7 +20,7 @@ export const Header = () => {
         location.pathname === "/"
           ? "bg-[#0a0400]/30 backdrop-blur-md"
           : "bg-[#885e45]"
-      } px-5 md:px-[50px] lg:px-[130px] py-5 shadow-md absolute z-10`}
+      } px-5 md:px-[50px] lg:px-[130px] py-2 shadow-md fixed z-10`}
     >
       <div className="flex items-center justify-between mb-3 flex-wrap gap-4 ">
         {/* LOGO */}
@@ -33,7 +33,7 @@ export const Header = () => {
 
         {/* Search */}
         <div className="relative w-3/5 max-w-lg h-[50px] flex items-center">
-          <button className="absolute left-[10px] top-[10px] h-[30px] w-[30px] rounded-full border-none bg-[#ad7555] text-[#efefef] flex items-center justify-center hover:bg-[#9a542c] z-10">
+          <button className="absolute left-[10px] top-[10px] h-[30px] w-[30px] rounded-full border-none bg-primary text-[#efefef] flex items-center justify-center hover:bg-[#9a542c] z-10">
             <FiSearch className="w-[18px] h-[18px]" />
           </button>
           <input
@@ -50,6 +50,10 @@ export const Header = () => {
           <div className="flex flex-col items-center cursor-pointer text-[#efefef] hover:text-[#9a542c]">
             <AiOutlineHeart className="w-[30px] h-[30px]" />
             <p className="text-[15px]"> Yêu thích</p>
+          </div>
+          <div className="flex flex-col items-center cursor-pointer text-[#efefef] hover:text-[#9a542c] relative">
+            <GrCart className="w-[30px] h-[30px]" />
+            <p className="text-[15px]">Giỏ hàng</p>
           </div>
           <div
             onClick={() => setIsShow(!isShow)}
@@ -83,10 +87,6 @@ export const Header = () => {
                 </p>
               </div>
             )}
-          </div>
-          <div className="flex flex-col items-center cursor-pointer text-[#efefef] hover:text-[#9a542c] relative">
-            <GrCart className="w-[30px] h-[30px]" />
-            <p className="text-[15px]">Giỏ hàng</p>
           </div>
         </div>
       </div>
