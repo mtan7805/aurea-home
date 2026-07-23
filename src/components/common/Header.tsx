@@ -116,7 +116,7 @@ export const Header = () => {
               value={inputText}
               type="text"
               placeholder="Tìm kiếm nội thất, không gian..."
-              className="w-full h-full rounded-full border-none bg-white/95 text-gray-800 text-sm outline-none pl-4 pr-12 shadow-inner focus:ring-2 focus:ring-primary transition-all"
+              className="w-full h-full rounded-full border-none bg-white/95 text-gray-800 text-base outline-none pl-4 pr-12 shadow-inner focus:ring-2 focus:ring-primary transition-all"
             />
             <button className="absolute right-1.5 h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary-hover transition-colors cursor-pointer">
               <FiSearch className="w-4 h-4" />
@@ -129,11 +129,11 @@ export const Header = () => {
             <div className="flex flex-col items-center cursor-pointer hover:text-amber-200 transition-colors relative group">
               <div className="relative">
                 <GrCart className="w-6 h-6 sm:w-7 sm:h-7 group-hover:scale-110 transition-transform" />
-                <span className="absolute -top-1.5 -right-2 bg-amber-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                <span className="absolute -top-1.5 -right-2 bg-amber-500 text-white text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center">
                   0
                 </span>
               </div>
-              <span className="hidden sm:inline text-xs mt-1 font-medium">Giỏ hàng</span>
+              <span className="hidden sm:inline text-sm mt-1 font-semibold">Giỏ hàng</span>
             </div>
 
             {/* Tài khoản */}
@@ -143,14 +143,14 @@ export const Header = () => {
                 className="flex flex-col items-center cursor-pointer hover:text-amber-200 transition-colors group"
               >
                 <MdOutlineAccountCircle className="w-6 h-6 sm:w-7 sm:h-7 group-hover:scale-110 transition-transform" />
-                <span className="hidden sm:inline text-xs mt-1 font-medium">
+                <span className="hidden sm:inline text-sm mt-1 font-semibold">
                   {authUser ? authUser.name : "Tài khoản"}
                 </span>
               </div>
 
               {/* Dropdown Tài khoản */}
               {isShowAccount && (
-                <div className="absolute left-1/2 -translate-x-1/2 top-10 sm:top-14 min-w-[130px] w-max bg-white rounded-xl shadow-xl border border-gray-100 py-1.5 px-1 text-gray-800 text-sm z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute left-1/2 -translate-x-1/2 top-10 sm:top-14 min-w-[140px] w-max bg-white rounded-xl shadow-xl border border-gray-100 py-1.5 px-1 text-gray-800 text-base z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                   {(!authUser
                     ? ["Đăng nhập", "Đăng ký"]
                     : ["Trang cá nhân", "Đăng xuất"]
@@ -158,7 +158,7 @@ export const Header = () => {
                     <p
                       key={item}
                       onClick={() => handleAccountMenuClick(index)}
-                      className="px-3.5 py-2 rounded-lg text-left font-medium hover:bg-amber-50 hover:text-primary cursor-pointer transition-colors whitespace-nowrap"
+                      className="px-4 py-2 rounded-lg text-left font-semibold hover:bg-amber-50 hover:text-primary cursor-pointer transition-colors whitespace-nowrap"
                     >
                       {item}
                     </p>
@@ -188,7 +188,7 @@ export const Header = () => {
             value={inputText}
             type="text"
             placeholder="Tìm kiếm..."
-            className="w-full h-full rounded-full border-none bg-white/95 text-gray-800 text-xs outline-none pl-4 pr-10 shadow-inner"
+            className="w-full h-full rounded-full border-none bg-white/95 text-gray-800 text-sm outline-none pl-4 pr-10 shadow-inner"
           />
           <button className="absolute right-1 h-7 w-7 rounded-full bg-primary text-white flex items-center justify-center">
             <FiSearch className="w-3.5 h-3.5" />
@@ -196,7 +196,7 @@ export const Header = () => {
         </div>
 
         {/* Desktop Navbar with Mega Dropdowns */}
-        <nav className="hidden lg:flex items-center justify-between gap-6 xl:gap-8 pt-1 border-t border-white/10 text-white text-sm font-medium relative">
+        <nav className="hidden lg:flex items-center justify-between gap-6 xl:gap-8 pt-1 border-t border-white/10 text-white text-base xl:text-[17px] font-bold relative">
           {navLinks.map((link) => (
             <div
               key={link.name}
@@ -211,25 +211,26 @@ export const Header = () => {
               >
                 {link.name}
                 {link.dropdownType && (
-                  <FiChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" />
+                  <FiChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
                 )}
               </a>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-200 transition-all duration-300 group-hover:w-full" />
 
               {/* Mega Menu Sản phẩm (8 danh mục với sub-items) */}
               {link.dropdownType === "products" && activeDropdown === "products" && (
-                <div className="absolute top-full -left-20 w-[900px] bg-white text-gray-800 rounded-2xl shadow-2xl border border-gray-100 p-6 grid grid-cols-4 gap-6 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute top-full -left-20 w-[920px] bg-white text-gray-800 rounded-2xl shadow-2xl border border-gray-100 p-6 grid grid-cols-4 gap-6 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                   {menuListProduct.map((cat) => (
                     <div key={cat.id} className="flex flex-col gap-2">
-                      <h4 className="font-bold text-primary text-[15px] md:text-base border-b border-amber-200/80 pb-2 flex items-center gap-2 tracking-wide">
+                      <h4 className="font-extrabold text-primary text-base md:text-lg border-b border-amber-200/80 pb-2 flex items-center gap-2 tracking-wide">
                         <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
                         {cat.title}
                       </h4>
-                      <ul className="flex flex-col gap-1.5 text-xs md:text-sm text-gray-600 mt-1">
+                      <ul className="flex flex-col gap-2 text-sm md:text-base text-gray-700 font-medium mt-1">
                         {cat.childrens.map((sub) => (
                           <li
                             key={sub.id}
                             onClick={() => {
+                              navigate("/products");
                               setActiveDropdown(null);
                             }}
                             className="hover:text-primary hover:translate-x-1 transition-all cursor-pointer py-0.5"
@@ -245,21 +246,21 @@ export const Header = () => {
 
               {/* Dropdown Menu Dự án (7 loại hình công trình) */}
               {link.dropdownType === "projects" && activeDropdown === "projects" && (
-                <div className="absolute top-full left-0 w-64 bg-white text-gray-800 rounded-xl shadow-xl border border-gray-100 p-2.5 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                  <div className="flex flex-col gap-1">
+                <div className="absolute top-full left-0 w-72 bg-white text-gray-800 rounded-xl shadow-xl border border-gray-100 p-3 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="flex flex-col gap-1.5">
                     {menuProjects.map((proj) => (
                       <div
                         key={proj.id}
                         onClick={() => {
                           setActiveDropdown(null);
                         }}
-                        className="px-3.5 py-2.5 rounded-lg hover:bg-amber-50 hover:text-primary transition-colors text-sm md:text-[15px] font-semibold cursor-pointer flex items-center justify-between group/proj"
+                        className="px-4 py-3 rounded-lg hover:bg-amber-50 hover:text-primary transition-colors text-base md:text-lg font-bold cursor-pointer flex items-center justify-between group/proj"
                       >
-                        <div className="flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-primary/60 group-hover/proj:bg-primary" />
+                        <div className="flex items-center gap-2.5">
+                          <span className="w-2 h-2 rounded-full bg-primary/60 group-hover/proj:bg-primary" />
                           <span>{proj.name}</span>
                         </div>
-                        <span className="text-primary text-xs opacity-0 group-hover/proj:opacity-100 transition-opacity">→</span>
+                        <span className="text-primary text-sm opacity-0 group-hover/proj:opacity-100 transition-opacity">→</span>
                       </div>
                     ))}
                   </div>

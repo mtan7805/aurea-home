@@ -38,7 +38,7 @@ function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* Tên sản phẩm */}
-        <h3 className="mt-3 text-sm font-semibold text-gray-800 line-clamp-2 hover:text-primary transition-colors cursor-pointer min-h-[40px]">
+        <h3 className="mt-3 text-base md:text-[17px] font-bold text-gray-800 line-clamp-2 hover:text-primary transition-colors cursor-pointer min-h-[44px]">
           {name}
         </h3>
       </div>
@@ -46,11 +46,11 @@ function ProductCard({ product }: ProductCardProps) {
       <div className="mt-3">
         {/* Giá sản phẩm */}
         <div className="flex items-baseline justify-between gap-2 flex-wrap">
-          <span className="text-base md:text-lg font-bold text-primary">
+          <span className="text-lg md:text-xl font-extrabold text-primary">
             {formatCurrency(finalPrice)}
           </span>
           {discount > 0 && (
-            <span className="text-xs text-gray-400 line-through font-medium">
+            <span className="text-sm text-gray-400 line-through font-semibold">
               {formatCurrency(price)}
             </span>
           )}
@@ -59,12 +59,12 @@ function ProductCard({ product }: ProductCardProps) {
         {/* Thanh trạng thái Flash Sale (Đã bán) */}
         {total > 0 && (
           <div className="mt-3">
-            <div className="w-full bg-amber-100 h-4 rounded-full overflow-hidden relative flex items-center justify-center">
+            <div className="w-full bg-amber-100 h-5 rounded-full overflow-hidden relative flex items-center justify-center">
               <div
                 className="bg-gradient-to-r from-amber-400 to-primary h-full absolute left-0 top-0 transition-all duration-500 rounded-full"
                 style={{ width: `${percentSold}%` }}
               />
-              <span className="relative z-10 text-[10px] font-bold text-amber-950 px-1">
+              <span className="relative z-10 text-xs font-extrabold text-amber-950 px-1">
                 Đã bán {sell}/{total}
               </span>
             </div>

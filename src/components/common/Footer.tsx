@@ -17,7 +17,7 @@ const Footer = () => {
               <div className="h-[40px] w-[40px] rounded-[8px] bg-[#9a542c] flex items-center justify-center shrink-0">
                 <IconComponent className="text-[24px] text-[#efefef]" />
               </div>
-              <p className="text-[16px] text-[#efefef] leading-[120%]">
+              <p className="text-[17px] md:text-[18px] text-[#efefef] leading-[140%]">
                 {item.text}
               </p>
             </div>
@@ -29,13 +29,13 @@ const Footer = () => {
       <div className="w-full sm:w-[50%] md:w-2/3 sm:mt-[30px] flex md:flex-row flex-col items-start justify-between gap-[20px]">
         {footerSections.map((section) => (
           <div key={section.id} className="flex md:w-[50%] w-full flex-col gap-[12px]">
-            <p className="text-[16px] text-[#efefef] leading-[120%] font-semibold">
+            <p className="text-[18px] md:text-[20px] text-[#efefef] leading-[130%] font-bold tracking-wide">
               {section.title}
             </p>
             {section.links.map((link) => (
               <p
                 key={link.id}
-                className="flex items-center gap-[10px] text-[#efefef] text-[16px] cursor-pointer hover:text-[#9a542c] transition-colors"
+                className="flex items-center gap-[10px] text-[#efefef] text-[17px] md:text-[18px] cursor-pointer hover:text-[#9a542c] transition-colors"
               >
                 <BiLinkExternal className="text-[24px] text-[#9a542c]" />
                 {link.label}

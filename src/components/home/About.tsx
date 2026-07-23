@@ -13,7 +13,7 @@ const About = () => {
         <p className="text-[30px] md:text-[40px] lg:text-[48px] font-bold leading-[140%]">
           {title}
         </p>
-        <p className="text-[16px] text-[#757F95] leading-[140%]">
+        <p className="text-[18px] md:text-[20px] text-gray-600 font-medium leading-[160%]">
           {description}
         </p>
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">

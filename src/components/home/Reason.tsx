@@ -11,15 +11,15 @@ const Reason = () => {
         data-aos="fade-right"
         className="w-full lg:w-1/2 flex flex-col gap-6"
       >
-        <p className="w-fit text-base md:text-lg text-primary font-semibold py-1.5 border-b-2 border-primary tracking-wide">
+        <p className="w-fit text-base md:text-xl text-primary font-bold py-1.5 border-b-2 border-primary tracking-wide uppercase">
           {subtitle}
         </p>
 
-        <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold text-gray-900 leading-tight">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
           {title}
         </h2>
 
-        <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+        <p className="text-gray-700 text-base md:text-lg font-medium leading-relaxed">
           {description}
         </p>
 
@@ -41,10 +41,10 @@ const Reason = () => {
 
               {/* Nội dung tính năng */}
               <div className="flex flex-col items-start gap-2">
-                <h3 className="text-lg md:text-xl font-bold text-gray-800 leading-snug">
+                <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 leading-snug">
                   {item.title}
                 </h3>
-                <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
+                <p className="text-sm md:text-base text-gray-700 font-medium leading-relaxed">
                   {item.description}
                 </p>
               </div>

@@ -31,7 +31,7 @@ const FAQ: React.FC = () => {
           {title}
         </h2>
 
-        <div className="text-gray-600 text-lg md:text-base leading-relaxed space-y-4 whitespace-pre-line">
+        <div className="text-gray-700 text-base md:text-lg font-medium leading-relaxed space-y-4 whitespace-pre-line">
           {description}
         </div>
 
@@ -39,7 +39,7 @@ const FAQ: React.FC = () => {
           <Button
             variant="primary"
             fullWidth={false}
-            className="px-6 py-3 text-sm"
+            className="px-6 py-3 text-base font-bold"
           >
             GỬI CÂU HỎI ?
           </Button>
@@ -64,7 +64,7 @@ const FAQ: React.FC = () => {
                 className="w-full p-5 flex items-center justify-between cursor-pointer select-none hover:bg-gray-50/80 transition-colors"
                 onClick={() => handleToggle(item.id)}
               >
-                <div className="flex items-center gap-3 text-base md:text-lg font-semibold text-gray-800 leading-snug">
+                <div className="flex items-center gap-3 text-lg md:text-xl font-bold text-gray-900 leading-snug">
                   <AiFillQuestionCircle className="text-2xl md:text-3xl text-primary shrink-0" />
                   <p className="hover:text-primary transition-colors">
                     {item.question}
@@ -79,7 +79,7 @@ const FAQ: React.FC = () => {
 
               {/* Nội dung câu trả lời */}
               {isOpen && (
-                <div className="w-full p-5 border-t border-amber-100 bg-amber-50/20 text-xs md:text-lg text-gray-600 leading-relaxed transition-all">
+                <div className="w-full p-5 border-t border-amber-100 bg-amber-50/20 text-base md:text-lg font-medium text-gray-700 leading-relaxed transition-all">
                   {item.answer}
                 </div>
               )}

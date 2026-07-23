@@ -60,7 +60,7 @@ const Banner = () => {
               {slider.subtitle && (
                 <p
                   data-aos="fade-down"
-                  className="text-[25px] md:text-[30px] break-words text-center text-[#9a542c] leading-[120%] font-semibold py-[3px] border-b-[2px] border-b-[#9a542c]"
+                  className="text-[25px] md:text-[32px] break-words text-center text-[#f4b896] leading-[120%] font-bold py-[4px] border-b-[2px] border-b-[#f4b896]"
                 >
                   {slider.subtitle}
                 </p>
@@ -68,7 +68,7 @@ const Banner = () => {
               {slider.title && (
                 <p
                   data-aos="fade-right"
-                  className="text-[30px] ms:text-[35px] md:text-[40px] lg:text-[50px] break-words text-[#efefef] leading-[140%] text-center font-bold"
+                  className="text-[32px] md:text-[45px] lg:text-[56px] break-words text-white leading-[130%] text-center font-extrabold"
                 >
                   {slider.title}
                 </p>
@@ -76,7 +76,7 @@ const Banner = () => {
               {slider.description && (
                 <p
                   data-aos="fade-left"
-                  className="text-[16px] sm:text-[18px] md:text-[20px] text-center break-words text-[#efefef] leading-[140%]"
+                  className="text-[18px] sm:text-[22px] md:text-[24px] text-center break-words text-white/90 leading-[150%] font-medium"
                 >
                   {slider.description}
                 </p>

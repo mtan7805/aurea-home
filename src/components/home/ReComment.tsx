@@ -62,7 +62,7 @@ const ReComment: React.FC = () => {
             >
               <div
                 data-aos="fade-up"
-                className="w-full max-w-[360px] h-[300px] bg-white rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100/80 mx-auto"
+                className="w-full max-w-[380px] min-h-[320px] bg-white rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100/80 mx-auto"
               >
                 {/* Rating Stars */}
                 <div className="flex items-center gap-1">
@@ -75,25 +75,25 @@ const ReComment: React.FC = () => {
                 </div>
 
                 {/* Content */}
-                <p className="text-xs md:text-sm text-gray-600 leading-relaxed line-clamp-4 w-full break-words pb-4 border-b border-gray-200">
+                <p className="text-sm md:text-base font-medium text-gray-700 leading-relaxed line-clamp-4 w-full break-words pb-4 border-b border-gray-200">
                   "{review.content}"
                 </p>
 
                 {/* User Info */}
-                <div className="w-full flex items-center justify-between mt-auto pt-2">
+                <div className="w-full flex items-center justify-between mt-auto pt-3">
                   <div className="flex items-center gap-3">
                     <div className="border-2 rounded-full border-primary p-0.5 bg-white shrink-0">
                       <img
                         src={review.user.avatar}
                         alt={review.user.name}
-                        className="w-11 h-11 object-cover rounded-full"
+                        className="w-12 h-12 object-cover rounded-full"
                       />
                     </div>
                     <div className="flex flex-col">
-                      <p className="text-sm font-bold text-gray-800 line-clamp-1">
+                      <p className="text-base font-bold text-gray-900 line-clamp-1">
                         {review.user.name}
                       </p>
-                      <p className="text-xs text-primary font-medium">
+                      <p className="text-sm text-primary font-semibold">
                         {review.user.job}
                       </p>
                     </div>

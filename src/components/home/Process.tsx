@@ -36,10 +36,10 @@ const Process = () => {
 
             {/* Tiêu đề & Mô tả */}
             <div className="flex flex-col gap-3 flex-1 justify-start">
-              <h3 className="text-lg md:text-xl font-bold text-gray-800 leading-snug group-hover:text-primary transition-colors">
+              <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 leading-snug group-hover:text-primary transition-colors">
                 {item.title}
               </h3>
-              <p className="text-xs md:text-sm text-gray-500 leading-relaxed font-normal">
+              <p className="text-sm md:text-base text-gray-600 leading-relaxed font-medium">
                 {item.description}
               </p>
             </div>

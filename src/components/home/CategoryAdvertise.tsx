@@ -15,10 +15,10 @@ export const CategoryAdvertise = () => {
               className="w-full h-[220px] object-cover group-hover:scale-105 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-6 flex flex-col justify-end text-white">
-              <h3 className="text-[20px] font-bold tracking-wide text-[#efefef]">
+              <h3 className="text-[24px] md:text-[26px] font-extrabold tracking-wide text-white">
                 {item.title}
               </h3>
-              <p className="text-[14px] text-gray-200 mt-1 opacity-90">
+              <p className="text-[16px] md:text-[17px] text-gray-100 mt-1 font-medium leading-relaxed">
                 {item.description}
               </p>
             </div>
