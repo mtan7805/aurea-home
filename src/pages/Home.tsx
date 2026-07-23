@@ -4,6 +4,8 @@ import { Category } from "../components/home/Category";
 import { CategoryAdvertise } from "../components/home/CategoryAdvertise";
 import Discounted from "../components/home/Discounted";
 import Process from "../components/home/Process";
+import Reason from "../components/home/Reason";
+import FAQ from "../components/home/FAQ";
 
 export const Home = () => {
   return (
@@ -14,6 +16,8 @@ export const Home = () => {
       <CategoryAdvertise />
       <Discounted />
       <Process />
+      <Reason />
+      <FAQ />
     </div>
   );
 };
