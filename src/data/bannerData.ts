@@ -33,7 +33,7 @@ export const bannerSlides: IBannerSlide[] = [
     imageUrl:
       "https://cdn.pixabay.com/photo/2015/10/20/18/57/furniture-998265_1280.jpg",
     subtitle: "DỊCH VỤ THI CÔNG TRỌN GÓI",
-    title: "Giải Pháp Kiến Kiến Tạo Tối Ưu Cho Ngôi Nhà Bạn",
+    title: "Giải Pháp Kiến Tạo Tối Ưu Cho Ngôi Nhà Bạn",
     description:
       "Đội ngũ kiến trúc sư chuyên nghiệp cam kết tiến độ thi công chuẩn xác, chất lượng bền vững cùng chính sách bảo hành tận tâm dài lâu.",
   },

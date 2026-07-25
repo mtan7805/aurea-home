@@ -28,7 +28,7 @@ export const menuListProduct: ICategoryMenuItem[] = [
     title: "Phòng khách",
     childrens: [
       { id: 1, name: "Sofa & ghế bành" },
-      { id: 2, name: "Bán cà phê" },
+      { id: 2, name: "Bàn cà phê" },
       { id: 3, name: "Tủ TV & kệ tường" },
       { id: 4, name: "Thảm trải sàn" },
       { id: 5, name: "Đèn trang trí" },
@@ -42,7 +42,7 @@ export const menuListProduct: ICategoryMenuItem[] = [
       { id: 2, name: "Dụng cụ nấu ăn" },
       { id: 3, name: "Đồ dùng nhà bếp" },
       { id: 4, name: "Thiết bị điện" },
-      { id: 5, name: "Bàn đào & xe đẩy bếp" },
+      { id: 5, name: "Bàn đảo & xe đẩy bếp" },
     ],
   },
   {
@@ -83,7 +83,7 @@ export const menuListProduct: ICategoryMenuItem[] = [
     title: "Phòng tắm",
     childrens: [
       { id: 1, name: "Tủ & kệ nhà tắm" },
-      { id: 2, name: "Giường phòng tắm" },
+      { id: 2, name: "Gương phòng tắm" },
       { id: 3, name: "Phụ kiện phòng tắm" },
       { id: 4, name: "Rèm và thảm nhà tắm" },
       { id: 5, name: "Giỏ đựng đồ giặt" },

@@ -6,4 +6,6 @@ export interface IProduct {
   price: number;
   sell: number;
   total: number;
+  categoryId?: number;
+  categoryName?: string;
 }

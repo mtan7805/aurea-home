@@ -1,6 +1,6 @@
+import { BsFillTelephoneFill } from "react-icons/bs";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { BsFillTelephoneFill } from "react-icons/bs";
 import type { IContactItem, IFooterSection } from "../types/footer";
 
 export const contactList: IContactItem[] = [
@@ -30,7 +30,7 @@ export const footerSections: IFooterSection[] = [
       { id: 2, label: "Liên hệ", path: "/lien-he" },
       { id: 3, label: "Tin tức", path: "/tin-tuc" },
       { id: 4, label: "Hệ thống cửa hàng", path: "/he-thong-cua-hang" },
-      { id: 5, label: "Sản phẩm", path: "/san-pham" },
+      { id: 5, label: "Sản phẩm", path: "/products" },
     ],
   },
   {
@@ -41,7 +41,7 @@ export const footerSections: IFooterSection[] = [
       { id: 2, label: "Chính sách vận chuyển", path: "/chinh-sach-van-chuyen" },
       { id: 3, label: "Chính sách đổi trả", path: "/chinh-sach-doi-tra" },
       { id: 4, label: "Bảo mật khách hàng", path: "/bao-mat-khach-hang" },
-      { id: 5, label: "Đăng ký tài khoản", path: "/dang-ky" },
+      { id: 5, label: "Đăng ký tài khoản", path: "/register" },
     ],
   },
 ];

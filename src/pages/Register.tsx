@@ -3,7 +3,21 @@ import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FiEye, FiLock, FiMail, FiUser } from "react-icons/fi";
 import { AuthLayout } from "../components/auth/AuthLayout";
-import { AUTH_USER_STORAGE_KEY } from "../data/authData";
+import {
+  AUTH_USER_STORAGE_KEY,
+  REGISTERED_USERS_STORAGE_KEY,
+  testUsers,
+  type TestUser,
+} from "../data/authData";
+
+const getRegisteredUsers = (): TestUser[] => {
+  try {
+    const users = localStorage.getItem(REGISTERED_USERS_STORAGE_KEY);
+    return users ? (JSON.parse(users) as TestUser[]) : [];
+  } catch {
+    return [];
+  }
+};
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -33,9 +47,31 @@ export const Register = () => {
       return;
     }
 
+    const normalizedEmail = email.trim().toLowerCase();
+    const registeredUsers = getRegisteredUsers();
+    const isExistingUser = [...testUsers, ...registeredUsers].some(
+      (user) => user.email.toLowerCase() === normalizedEmail,
+    );
+
+    if (isExistingUser) {
+      setMessage("Email này đã được đăng ký.");
+      return;
+    }
+
+    const newUser: TestUser = {
+      id: Date.now(),
+      name: fullName.trim(),
+      email: normalizedEmail,
+      password,
+    };
+
+    localStorage.setItem(
+      REGISTERED_USERS_STORAGE_KEY,
+      JSON.stringify([...registeredUsers, newUser]),
+    );
     localStorage.setItem(
       AUTH_USER_STORAGE_KEY,
-      JSON.stringify({ name: fullName.trim(), email: email.trim() })
+      JSON.stringify({ name: newUser.name, email: newUser.email }),
     );
     navigate("/");
   };

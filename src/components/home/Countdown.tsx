@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import type { ITimeLeft, ICountdownProps } from "../../types/discount";
+import type { ICountdownProps, ITimeLeft } from "../../types/discount";
 
 interface CountdownBoxProps {
   value: string;
   label: string;
 }
 
-// Sub-component hiển thị 1 ô đếm ngược tái sử dụng
 const CountdownBox: React.FC<CountdownBoxProps> = ({ value, label }) => (
   <div className="flex flex-col items-center">
     <div className="w-10 h-10 md:w-12 md:h-12 bg-primary text-white rounded-xl flex items-center justify-center text-sm md:text-lg font-bold shadow-sm">

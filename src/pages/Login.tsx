@@ -3,7 +3,22 @@ import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FiEye, FiLock, FiMail } from "react-icons/fi";
 import { AuthLayout } from "../components/auth/AuthLayout";
-import { AUTH_USER_STORAGE_KEY, testUsers } from "../data/authData";
+import {
+  AUTH_SESSION_USER_STORAGE_KEY,
+  AUTH_USER_STORAGE_KEY,
+  REGISTERED_USERS_STORAGE_KEY,
+  testUsers,
+  type TestUser,
+} from "../data/authData";
+
+const getRegisteredUsers = (): TestUser[] => {
+  try {
+    const users = localStorage.getItem(REGISTERED_USERS_STORAGE_KEY);
+    return users ? (JSON.parse(users) as TestUser[]) : [];
+  } catch {
+    return [];
+  }
+};
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -21,8 +36,11 @@ export const Login = () => {
       return;
     }
 
-    const foundUser = testUsers.find(
-      (user) => user.email === email.trim() && user.password === password
+    const normalizedEmail = email.trim().toLowerCase();
+    const allUsers = [...testUsers, ...getRegisteredUsers()];
+    const foundUser = allUsers.find(
+      (user) =>
+        user.email.toLowerCase() === normalizedEmail && user.password === password,
     );
 
     if (!foundUser) {
@@ -30,10 +48,20 @@ export const Login = () => {
       return;
     }
 
-    localStorage.setItem(
-      AUTH_USER_STORAGE_KEY,
-      JSON.stringify({ name: foundUser.name, email: foundUser.email })
-    );
+    const authUser = JSON.stringify({
+      name: foundUser.name,
+      email: foundUser.email,
+    });
+
+    localStorage.removeItem(AUTH_USER_STORAGE_KEY);
+    sessionStorage.removeItem(AUTH_SESSION_USER_STORAGE_KEY);
+
+    if (rememberMe) {
+      localStorage.setItem(AUTH_USER_STORAGE_KEY, authUser);
+    } else {
+      sessionStorage.setItem(AUTH_SESSION_USER_STORAGE_KEY, authUser);
+    }
+
     navigate("/");
   };
 
