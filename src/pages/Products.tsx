@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { FiSearch } from "react-icons/fi";
+import { FiLoader, FiSearch } from "react-icons/fi";
 import ProductCard from "../components/product/ProductCard";
 import {
   fetchApiCategories,
@@ -124,9 +124,14 @@ export const Products = () => {
       </div>
 
       {loading && (
-        <p className="text-center text-gray-600 font-semibold">
-          Đang tải sản phẩm...
-        </p>
+        <div
+          className="flex flex-col items-center justify-center gap-4 py-20 text-gray-700"
+          role="status"
+          aria-live="polite"
+        >
+          <FiLoader className="h-20 w-20 md:h-24 md:w-24 animate-spin text-[#8c583c]" />
+          <p className="text-base font-semibold">Đang tải sản phẩm...</p>
+        </div>
       )}
 
       {!loading && error && (
