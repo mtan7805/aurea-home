@@ -6,6 +6,7 @@ import { Register } from "../pages/Register";
 import { Home } from "../pages/Home";
 import { Products } from "../pages/Products";
 import { Projects } from "../pages/Projects";
+import { News } from "../pages/News";
 import { ComingSoon } from "../pages/ComingSoon";
 
 export default function AppRoutes() {
@@ -18,15 +19,7 @@ export default function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/projects" element={<Projects />} />
-        <Route
-          path="/news"
-          element={
-            <ComingSoon
-              title="Tin tức"
-              description="Tin tức, xu hướng và kinh nghiệm thiết kế nội thất sẽ sớm có mặt."
-            />
-          }
-        />
+        <Route path="/news" element={<News />} />
         <Route
           path="/calculator"
           element={
