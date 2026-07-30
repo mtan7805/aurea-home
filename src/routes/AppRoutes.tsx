@@ -5,6 +5,7 @@ import { Login } from "../pages/Login";
 import { Register } from "../pages/Register";
 import { Home } from "../pages/Home";
 import { Products } from "../pages/Products";
+import { Projects } from "../pages/Projects";
 import { ComingSoon } from "../pages/ComingSoon";
 
 export default function AppRoutes() {
@@ -16,15 +17,7 @@ export default function AppRoutes() {
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
-        <Route
-          path="/projects"
-          element={
-            <ComingSoon
-              title="Dự án"
-              description="Các dự án nội thất tiêu biểu của Aurea Home đang được cập nhật."
-            />
-          }
-        />
+        <Route path="/projects" element={<Projects />} />
         <Route
           path="/news"
           element={
