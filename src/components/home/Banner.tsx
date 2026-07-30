@@ -56,7 +56,7 @@ const Banner = () => {
             {/* Lớp phủ màu nâu nhẹ */}
             <div className="absolute inset-0 bg-[#0a0400] opacity-50 z-[1] pointer-events-none" />
 
-            <div className="absolute top-0 left-0 w-full h-[100svh] min-h-[640px] z-10 flex flex-col gap-4 sm:gap-5 items-center justify-center px-10 sm:px-16 md:px-24 lg:px-40 xl:px-[300px]">
+            <div className="absolute top-0 left-0 w-full h-[100svh] min-h-[640px] z-10 flex flex-col gap-4 sm:gap-5 items-center justify-center px-10 sm:px-16 md:px-24 lg:px-40 xl:px-[300px] pt-32 sm:pt-36 xl:pt-52 pb-16">
               {slider.subtitle && (
                 <p
                   data-aos="fade-down"

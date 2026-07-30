@@ -2,16 +2,18 @@ import { useMemo, useState } from "react";
 import { FiClock, FiSearch, FiUser } from "react-icons/fi";
 import NewsList from "../components/news/NewsList";
 import { newsCategories, newsData } from "../data/newsData";
+import { useThrottledValue } from "../hooks/useThrottle";
 import type { NewsCategory } from "../types/news";
 
 export const News = () => {
   const [selectedCategory, setSelectedCategory] = useState<NewsCategory>("all");
   const [searchTerm, setSearchTerm] = useState("");
+  const throttledSearchTerm = useThrottledValue(searchTerm, 400);
 
   const featuredNews = newsData.find((news) => news.featured) ?? newsData[0];
 
   const filteredNews = useMemo(() => {
-    const normalizedSearch = searchTerm.trim().toLowerCase();
+    const normalizedSearch = throttledSearchTerm.trim().toLowerCase();
 
     return newsData.filter((news) => {
       if (news.id === featuredNews.id) return false;
@@ -26,7 +28,7 @@ export const News = () => {
 
       return matchesCategory && matchesSearch;
     });
-  }, [featuredNews.id, searchTerm, selectedCategory]);
+  }, [featuredNews.id, throttledSearchTerm, selectedCategory]);
 
   return (
     <div className="w-full min-h-screen bg-[#faf8f5] pt-44 pb-24 px-5 md:px-[50px] lg:px-[130px]">
@@ -73,7 +75,7 @@ export const News = () => {
             <span>{featuredNews.publishedAt}</span>
             <span className="flex items-center gap-2">
               <FiClock className="w-4 h-4 text-primary" />
-              {featuredNews.readTime} phút trước
+              {featuredNews.readTime} phút đọc
             </span>
           </div>
           <button
@@ -86,7 +88,7 @@ export const News = () => {
       </section>
 
       <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-4 bg-white mb-10 p-4 rounded-2xl shadow-sm border border-gray-100">
-        <div className="w-full lg:w-auto flex items-center gap-2 overflow-x-auto pb-1 lg:pb-0">
+        <div className="w-full lg:w-auto flex items-center gap-2 overflow-x-auto pb-1 lg:pb-0 scrollbar-none">
           {newsCategories.map((category) => (
             <button
               type="button"

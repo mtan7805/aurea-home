@@ -1,3 +1,5 @@
+import { useThrottledCallback } from "../../hooks/useThrottle";
+import { useCartStore } from "../../stores/cartStore";
 import type { IProduct } from "../../types/product";
 import { Button } from "../common/Button";
 
@@ -8,6 +10,7 @@ interface ProductCardProps {
 
 function ProductCard({ product, hideProgress = false }: ProductCardProps) {
   const { name, image, discount, price, sell, total, categoryName } = product;
+  const addToCart = useCartStore((state) => state.addToCart);
 
   const finalPrice =
     discount > 0 ? Math.round((price * (100 - discount)) / 100) : price;
@@ -18,6 +21,11 @@ function ProductCard({ product, hideProgress = false }: ProductCardProps) {
   const formatCurrency = (val: number) => {
     return `${new Intl.NumberFormat("vi-VN").format(val)}đ`;
   };
+
+  const handleAddToCart = useThrottledCallback(() => {
+    console.log("Sản phẩm được thêm vào giỏ:", product);
+    addToCart(product);
+  }, 700);
 
   return (
     <div className="group w-full bg-white rounded-xl p-3.5 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col justify-between h-full">
@@ -74,7 +82,9 @@ function ProductCard({ product, hideProgress = false }: ProductCardProps) {
         )}
 
         <div className="flex items-center justify-between gap-2 mt-3.5 pt-2 border-t border-gray-100">
-          <Button variant="primary">Thêm vào giỏ</Button>
+          <Button variant="primary" onClick={handleAddToCart}>
+            Thêm vào giỏ
+          </Button>
           <Button variant="outline">Mua ngay</Button>
         </div>
       </div>

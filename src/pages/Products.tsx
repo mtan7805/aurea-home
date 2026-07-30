@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { FiLoader, FiSearch } from "react-icons/fi";
 import ProductCard from "../components/product/ProductCard";
+import { useThrottledValue } from "../hooks/useThrottle";
 import {
   fetchApiCategories,
   fetchApiProducts,
@@ -15,6 +16,7 @@ export const Products = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  const throttledSearchTerm = useThrottledValue(searchTerm, 400);
 
   useEffect(() => {
     let isMounted = true;
@@ -41,7 +43,7 @@ export const Products = () => {
   }, []);
 
   const filteredProducts = useMemo(() => {
-    const normalizedSearch = searchTerm.trim().toLowerCase();
+    const normalizedSearch = throttledSearchTerm.trim().toLowerCase();
 
     return products.filter((product) => {
       const matchesCategory =
@@ -53,7 +55,7 @@ export const Products = () => {
 
       return matchesCategory && matchesSearch;
     });
-  }, [products, searchTerm, selectedCategory]);
+  }, [products, throttledSearchTerm, selectedCategory]);
 
   const formatCategoryName = (name: string) => {
     const map: Record<string, string> = {

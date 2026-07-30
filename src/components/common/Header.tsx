@@ -9,6 +9,7 @@ import {
   AUTH_USER_STORAGE_KEY,
 } from "../../data/authData";
 import { menuListProduct, menuProjects } from "../../data/menuData";
+import { useCartStore } from "../../stores/cartStore";
 
 interface NavLinkItem {
   name: string;
@@ -41,6 +42,7 @@ const getStoredAuthUser = (): AuthUser | null => {
 export const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const cartCount = useCartStore((state) => state.items.length);
   const [inputText, setInputText] = useState("");
   const [isShowAccount, setIsShowAccount] = useState(false);
   const [authUser, setAuthUser] = useState(getStoredAuthUser);
@@ -165,8 +167,8 @@ export const Header = () => {
             >
               <div className="relative">
                 <GrCart className="w-6 h-6 sm:w-7 sm:h-7 group-hover:scale-110 transition-transform" />
-                <span className="absolute -top-1.5 -right-2 bg-amber-500 text-white text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center">
-                  0
+                <span className="absolute -top-1.5 -right-2 bg-amber-500 text-white text-xs font-bold min-w-4 h-4 px-1 rounded-full flex items-center justify-center">
+                  {cartCount}
                 </span>
               </div>
               <span className="hidden sm:inline text-sm mt-1 font-semibold">
