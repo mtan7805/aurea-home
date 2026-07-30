@@ -127,26 +127,26 @@ export const Header = () => {
         location.pathname === "/"
           ? "bg-[#0a0400]/40 backdrop-blur-md border-b border-white/10"
           : "bg-[#885e45]"
-      } px-5 md:px-[50px] lg:px-[130px] py-2 shadow-md fixed top-0 left-0 z-50 transition-all duration-300`}
+      } px-4 md:px-8 xl:px-[130px] py-2 shadow-md fixed top-0 left-0 z-50 transition-all duration-300`}
     >
       <div className="w-full flex flex-col gap-2">
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-3 md:gap-4">
           <button
             type="button"
             onClick={handleLogoClick}
-            className="w-[110px] h-[85px] cursor-pointer flex items-center justify-center shrink-0"
+            className="w-[88px] h-[64px] sm:w-[100px] sm:h-[76px] xl:w-[110px] xl:h-[85px] cursor-pointer flex items-center justify-center shrink-0"
             aria-label="Về trang chủ"
           >
             <Logo />
           </button>
 
-          <div className="hidden sm:flex relative flex-1 max-w-xl lg:max-w-2xl h-11 items-center">
+          <div className="hidden sm:flex relative flex-1 max-w-xl xl:max-w-2xl h-10 xl:h-11 items-center">
             <input
               onChange={(e) => setInputText(e.target.value)}
               value={inputText}
               type="text"
               placeholder="Tìm kiếm nội thất, không gian..."
-              className="w-full h-full rounded-full border-none bg-white/95 text-gray-800 text-base outline-none pl-4 pr-12 shadow-inner focus:ring-2 focus:ring-primary transition-all"
+              className="w-full h-full rounded-full border-none bg-white/95 text-gray-800 text-sm xl:text-base outline-none pl-4 pr-12 shadow-inner focus:ring-2 focus:ring-primary transition-all"
             />
             <button
               type="button"
@@ -157,7 +157,7 @@ export const Header = () => {
             </button>
           </div>
 
-          <div className="flex items-center gap-4 sm:gap-6 text-white">
+          <div className="flex items-center gap-3 sm:gap-5 text-white">
             <button
               type="button"
               className="flex flex-col items-center cursor-pointer hover:text-amber-200 transition-colors relative group"
@@ -181,13 +181,13 @@ export const Header = () => {
                 className="flex flex-col items-center cursor-pointer hover:text-amber-200 transition-colors group"
               >
                 <MdOutlineAccountCircle className="w-6 h-6 sm:w-7 sm:h-7 group-hover:scale-110 transition-transform" />
-                <span className="hidden sm:inline text-sm mt-1 font-semibold">
+                <span className="hidden sm:inline text-sm mt-1 font-semibold max-w-28 truncate">
                   {authUser ? authUser.name : "Tài khoản"}
                 </span>
               </button>
 
               {isShowAccount && (
-                <div className="absolute left-1/2 -translate-x-1/2 top-10 sm:top-14 min-w-[140px] w-max bg-white rounded-xl shadow-xl border border-gray-100 py-1.5 px-1 text-gray-800 text-base z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute right-0 top-10 sm:top-14 min-w-[140px] w-max bg-white rounded-xl shadow-xl border border-gray-100 py-1.5 px-1 text-gray-800 text-base z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                   {accountMenuItems.map((item, index) => (
                     <button
                       type="button"
@@ -205,7 +205,7 @@ export const Header = () => {
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white focus:outline-none transition-colors"
+              className="xl:hidden p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white focus:outline-none transition-colors"
               aria-label="Mở menu"
             >
               {isMobileMenuOpen ? (
@@ -234,7 +234,7 @@ export const Header = () => {
           </button>
         </div>
 
-        <nav className="hidden lg:flex items-center justify-between gap-6 xl:gap-8 pt-1 border-t border-white/10 text-white text-base xl:text-[17px] font-bold relative">
+        <nav className="hidden xl:flex items-center justify-between gap-5 pt-1 border-t border-white/10 text-white text-base font-bold relative">
           {navLinks.map((link) => (
             <div
               key={link.name}
@@ -258,7 +258,7 @@ export const Header = () => {
 
               {link.dropdownType === "products" &&
                 activeDropdown === "products" && (
-                  <div className="absolute top-full -left-20 w-[920px] bg-white text-gray-800 rounded-2xl shadow-2xl border border-gray-100 p-6 grid grid-cols-4 gap-6 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="absolute top-full -left-20 w-[min(920px,calc(100vw-2rem))] bg-white text-gray-800 rounded-2xl shadow-2xl border border-gray-100 p-6 grid grid-cols-4 gap-6 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                     {menuListProduct.map((cat) => (
                       <div key={cat.id} className="flex flex-col gap-2">
                         <h4 className="font-extrabold text-primary text-base md:text-lg border-b border-amber-200/80 pb-2 flex items-center gap-2 tracking-wide">
@@ -315,7 +315,7 @@ export const Header = () => {
         </nav>
 
         {isMobileMenuOpen && (
-          <div className="lg:hidden flex flex-col gap-3 pt-3 pb-2 border-t border-white/10 text-white animate-in slide-in-from-top-3 duration-300 max-h-[80vh] overflow-y-auto">
+          <div className="xl:hidden flex flex-col gap-3 pt-3 pb-2 border-t border-white/10 text-white animate-in slide-in-from-top-3 duration-300 max-h-[80vh] overflow-y-auto scrollbar-none">
             <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <div key={link.name} className="flex flex-col">

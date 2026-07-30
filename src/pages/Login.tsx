@@ -67,31 +67,31 @@ export const Login = () => {
 
   return (
     <AuthLayout activeMode="login">
-      <form className="mt-8 flex flex-col gap-5" onSubmit={handleSubmit}>
-        <label className="flex flex-col gap-2 text-base font-semibold text-[#2f2b27]">
+      <form className="mt-7 sm:mt-8 flex flex-col gap-5" onSubmit={handleSubmit}>
+        <label className="flex flex-col gap-2 text-sm sm:text-base font-semibold text-[#2f2b27]">
           Email
-          <span className="flex h-13 items-center gap-3 rounded-lg border border-[#d8d0c8] bg-white px-4 text-[#7a716a] transition-colors focus-within:border-[#52614e] focus-within:ring-4 focus-within:ring-[#52614e]/10">
+          <span className="flex h-12 sm:h-13 items-center gap-3 rounded-lg border border-[#d8d0c8] bg-white px-4 text-[#7a716a] transition-colors focus-within:border-[#52614e] focus-within:ring-4 focus-within:ring-[#52614e]/10">
             <FiMail className="h-5 w-5 shrink-0" />
             <input
               type="email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               placeholder="Nhập địa chỉ email của bạn"
-              className="h-full w-full bg-transparent text-base text-[#2f2b27] outline-none placeholder:text-[#aaa29a]"
+              className="h-full w-full min-w-0 bg-transparent text-sm sm:text-base text-[#2f2b27] outline-none placeholder:text-[#aaa29a]"
             />
           </span>
         </label>
 
-        <label className="flex flex-col gap-2 text-base font-semibold text-[#2f2b27]">
+        <label className="flex flex-col gap-2 text-sm sm:text-base font-semibold text-[#2f2b27]">
           Mật khẩu
-          <span className="flex h-13 items-center gap-3 rounded-lg border border-[#d8d0c8] bg-white px-4 text-[#7a716a] transition-colors focus-within:border-[#52614e] focus-within:ring-4 focus-within:ring-[#52614e]/10">
+          <span className="flex h-12 sm:h-13 items-center gap-3 rounded-lg border border-[#d8d0c8] bg-white px-4 text-[#7a716a] transition-colors focus-within:border-[#52614e] focus-within:ring-4 focus-within:ring-[#52614e]/10">
             <FiLock className="h-5 w-5 shrink-0" />
             <input
               type={showPassword ? "text" : "password"}
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               placeholder="Nhập mật khẩu"
-              className="h-full w-full bg-transparent text-base text-[#2f2b27] outline-none placeholder:text-[#aaa29a]"
+              className="h-full w-full min-w-0 bg-transparent text-sm sm:text-base text-[#2f2b27] outline-none placeholder:text-[#aaa29a]"
             />
             <button
               type="button"
@@ -131,7 +131,7 @@ export const Login = () => {
 
         <button
           type="submit"
-          className="h-13 rounded-lg bg-[#52614e] text-base font-bold text-white shadow-lg shadow-[#52614e]/20 transition hover:bg-[#435040] focus:outline-none focus:ring-4 focus:ring-[#52614e]/20 cursor-pointer"
+          className="h-12 sm:h-13 rounded-lg bg-[#52614e] text-sm sm:text-base font-bold text-white shadow-lg shadow-[#52614e]/20 transition hover:bg-[#435040] focus:outline-none focus:ring-4 focus:ring-[#52614e]/20 cursor-pointer"
         >
           Đăng nhập
         </button>
@@ -144,7 +144,7 @@ export const Login = () => {
 
         <button
           type="button"
-          className="flex h-13 items-center justify-center gap-3 rounded-lg border border-[#d8d0c8] bg-white text-base font-bold text-[#2f2b27] transition hover:bg-[#faf8f5] focus:outline-none focus:ring-4 focus:ring-[#ad7555]/15 cursor-pointer"
+          className="flex h-12 sm:h-13 items-center justify-center gap-3 rounded-lg border border-[#d8d0c8] bg-white text-sm sm:text-base font-bold text-[#2f2b27] transition hover:bg-[#faf8f5] focus:outline-none focus:ring-4 focus:ring-[#ad7555]/15 cursor-pointer"
         >
           <FcGoogle className="h-6 w-6" />
           Tiếp tục với Google

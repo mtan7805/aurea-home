@@ -125,11 +125,11 @@ export const Products = () => {
 
       {loading && (
         <div
-          className="flex flex-col items-center justify-center gap-4 py-20 text-gray-700"
+          className="flex flex-col items-center justify-center gap-3 py-14 text-gray-700"
           role="status"
           aria-live="polite"
         >
-          <FiLoader className="h-20 w-20 md:h-24 md:w-24 animate-spin text-[#8c583c]" />
+          <FiLoader className="h-10 w-10 md:h-12 md:w-12 animate-spin text-[#8c583c]" />
           <p className="text-base font-semibold">Đang tải sản phẩm...</p>
         </div>
       )}

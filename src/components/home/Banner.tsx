@@ -21,7 +21,7 @@ const Banner = () => {
       {/* Nút Prev */}
       <button
         onClick={() => swiperInstance?.slidePrev()}
-        className={`absolute z-10 left-[10px] bg-slate-100 text-[#9a542c] p-[4px] text-[25px] shadow-lg rounded-lg cursor-pointer transition-all ${
+        className={`absolute z-10 left-2 sm:left-4 bg-slate-100 text-[#9a542c] p-1 text-xl sm:text-2xl shadow-lg rounded-lg cursor-pointer transition-all ${
           isBeginning ? "opacity-30 cursor-not-allowed" : "hover:bg-[#9a542c] hover:text-white"
         }`}
         disabled={isBeginning}
@@ -48,7 +48,7 @@ const Banner = () => {
         {bannerSlides.map((slider, index) => (
           <SwiperSlide key={slider.id}>
             <img
-              className="w-full h-[100vh] object-cover"
+              className="w-full h-[100svh] min-h-[640px] object-cover"
               src={slider.imageUrl}
               alt={`Slide ${index + 1}`}
             />
@@ -56,11 +56,11 @@ const Banner = () => {
             {/* Lớp phủ màu nâu nhẹ */}
             <div className="absolute inset-0 bg-[#0a0400] opacity-50 z-[1] pointer-events-none" />
 
-            <div className="absolute top-0 left-0 w-full h-[100vh] z-10 flex flex-col gap-[20px] items-center justify-center px-[50px] md:px-[100px] lg:px-[200px] xl:px-[300px]">
+            <div className="absolute top-0 left-0 w-full h-[100svh] min-h-[640px] z-10 flex flex-col gap-4 sm:gap-5 items-center justify-center px-10 sm:px-16 md:px-24 lg:px-40 xl:px-[300px]">
               {slider.subtitle && (
                 <p
                   data-aos="fade-down"
-                  className="text-[25px] md:text-[32px] break-words text-center text-[#f4b896] leading-[120%] font-bold py-[4px] border-b-[2px] border-b-[#f4b896]"
+                  className="text-xl sm:text-2xl md:text-[32px] break-words text-center text-[#f4b896] leading-[120%] font-bold py-1 border-b-2 border-b-[#f4b896]"
                 >
                   {slider.subtitle}
                 </p>
@@ -68,7 +68,7 @@ const Banner = () => {
               {slider.title && (
                 <p
                   data-aos="fade-right"
-                  className="text-[32px] md:text-[45px] lg:text-[56px] break-words text-white leading-[130%] text-center font-extrabold"
+                  className="text-3xl sm:text-4xl md:text-[45px] lg:text-[56px] break-words text-white leading-[130%] text-center font-extrabold"
                 >
                   {slider.title}
                 </p>
@@ -76,7 +76,7 @@ const Banner = () => {
               {slider.description && (
                 <p
                   data-aos="fade-left"
-                  className="text-[18px] sm:text-[22px] md:text-[24px] text-center break-words text-white/90 leading-[150%] font-medium"
+                  className="text-base sm:text-xl md:text-2xl text-center break-words text-white/90 leading-[150%] font-medium"
                 >
                   {slider.description}
                 </p>
@@ -89,7 +89,7 @@ const Banner = () => {
       {/* Nút Next */}
       <button
         onClick={() => swiperInstance?.slideNext()}
-        className={`absolute z-10 right-[10px] bg-slate-100 text-[#9a542c] p-[4px] text-[25px] shadow-lg rounded-lg cursor-pointer transition-all ${
+        className={`absolute z-10 right-2 sm:right-4 bg-slate-100 text-[#9a542c] p-1 text-xl sm:text-2xl shadow-lg rounded-lg cursor-pointer transition-all ${
           isEnd ? "opacity-30 cursor-not-allowed" : "hover:bg-[#9a542c] hover:text-white"
         }`}
         disabled={isEnd}

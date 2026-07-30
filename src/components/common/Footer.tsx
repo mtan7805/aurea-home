@@ -4,9 +4,9 @@ import { contactList, footerSections } from "../../data/footerData";
 
 const Footer = () => {
   return (
-    <div id="footer" className="w-full px-[20px] md:px-[50px] lg:px-[130px] py-[50px] bg-[#1c120c] border-t-[1px] border-t-[#9a542c] flex flex-col gap-[50px] sm:flex-row sm:items-start sm:justify-between items-center justify-center">
+    <div id="footer" className="w-full px-5 md:px-[50px] lg:px-[130px] py-12 bg-[#1c120c] border-t border-t-[#9a542c] flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between items-center justify-center">
       {/* Cột trái: Logo & Thông tin liên hệ */}
-      <div className="flex md:w-[30%] sm:w-[50%] w-full flex-col gap-[12px]">
+      <div className="flex lg:w-[32%] w-full flex-col gap-3">
         <div className="w-[115px] h-[75px] flex items-center justify-start cursor-pointer">
           <Logo />
         </div>
@@ -26,7 +26,7 @@ const Footer = () => {
       </div>
 
       {/* Cột phải: Các danh mục đường dẫn liên kết */}
-      <div className="w-full sm:w-[50%] md:w-2/3 sm:mt-[30px] flex md:flex-row flex-col items-start justify-between gap-[20px]">
+      <div className="w-full lg:w-2/3 flex sm:flex-row flex-col items-start justify-between gap-8">
         {footerSections.map((section) => (
           <div key={section.id} className="flex md:w-[50%] w-full flex-col gap-[12px]">
             <p className="text-[18px] md:text-[20px] text-[#efefef] leading-[130%] font-bold tracking-wide">

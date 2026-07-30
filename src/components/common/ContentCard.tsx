@@ -47,7 +47,7 @@ export default function ContentCard({
 
         {children}
 
-        <div className="mt-auto pt-5 flex items-center justify-between gap-3 border-t border-gray-100">
+        <div className="mt-auto pt-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-t border-gray-100">
           {footer ? <div className="min-w-0">{footer}</div> : <span />}
           <button
             type="button"
