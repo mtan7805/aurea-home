@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { FiLoader, FiSearch } from "react-icons/fi";
+import Pagination from "../components/common/Pagination";
 import ProductCard from "../components/product/ProductCard";
+import { usePagination } from "../hooks/usePagination";
 import { useThrottledValue } from "../hooks/useThrottle";
 import {
   fetchApiCategories,
@@ -9,6 +11,8 @@ import {
 } from "../services/productService";
 import type { IApiCategory } from "../types/apiProduct";
 import type { IProduct } from "../types/product";
+
+const PRODUCTS_PER_PAGE = 8;
 
 export const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -24,6 +28,7 @@ export const Products = () => {
 
   useEffect(() => {
     const searchFromUrl = searchParams.get("search") ?? "";
+
     setSearchTerm((current) =>
       current === searchFromUrl ? current : searchFromUrl,
     );
@@ -43,6 +48,7 @@ export const Products = () => {
       nextParams.delete("search");
     }
 
+    nextParams.delete("page");
     setSearchParams(nextParams, { replace: true });
   }, [searchParams, setSearchParams, throttledSearchTerm]);
 
@@ -84,6 +90,14 @@ export const Products = () => {
       return matchesCategory && matchesSearch;
     });
   }, [products, throttledSearchTerm, selectedCategory]);
+
+  const { currentPage, totalPages, paginatedItems, handlePageChange, resetPage } =
+    usePagination(filteredProducts, PRODUCTS_PER_PAGE);
+
+  const handleCategoryChange = (categoryId: number | null) => {
+    setSelectedCategory(categoryId);
+    resetPage();
+  };
 
   const formatCategoryName = (name: string) => {
     const map: Record<string, string> = {
@@ -127,7 +141,7 @@ export const Products = () => {
         <div className="w-full md:w-auto flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
           <button
             type="button"
-            onClick={() => setSelectedCategory(null)}
+            onClick={() => handleCategoryChange(null)}
             className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all whitespace-nowrap cursor-pointer ${
               selectedCategory === null
                 ? "bg-primary text-white shadow-md shadow-primary/20"
@@ -140,7 +154,7 @@ export const Products = () => {
             <button
               type="button"
               key={cat.id}
-              onClick={() => setSelectedCategory(cat.id)}
+              onClick={() => handleCategoryChange(cat.id)}
               className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all whitespace-nowrap cursor-pointer ${
                 selectedCategory === cat.id
                   ? "bg-primary text-white shadow-md shadow-primary/20"
@@ -176,10 +190,18 @@ export const Products = () => {
 
       {!loading && !error && filteredProducts.length > 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-          {filteredProducts.map((product) => (
+          {paginatedItems.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
+      )}
+
+      {!loading && !error && filteredProducts.length > 0 && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
       )}
     </div>
   );

@@ -1,9 +1,13 @@
 import { useMemo, useState } from "react";
 import { FiClock, FiSearch, FiUser } from "react-icons/fi";
+import Pagination from "../components/common/Pagination";
 import NewsList from "../components/news/NewsList";
 import { newsCategories, newsData } from "../data/newsData";
+import { usePagination } from "../hooks/usePagination";
 import { useThrottledValue } from "../hooks/useThrottle";
 import type { NewsCategory } from "../types/news";
+
+const NEWS_PER_PAGE = 6;
 
 export const News = () => {
   const [selectedCategory, setSelectedCategory] = useState<NewsCategory>("all");
@@ -29,6 +33,19 @@ export const News = () => {
       return matchesCategory && matchesSearch;
     });
   }, [featuredNews.id, throttledSearchTerm, selectedCategory]);
+
+  const {
+    currentPage,
+    totalPages,
+    paginatedItems,
+    handlePageChange,
+    resetPage,
+  } = usePagination(filteredNews, NEWS_PER_PAGE);
+
+  const handleCategoryChange = (category: NewsCategory) => {
+    setSelectedCategory(category);
+    resetPage();
+  };
 
   return (
     <div className="w-full min-h-screen bg-[#faf8f5] pt-44 pb-24 px-5 md:px-[50px] lg:px-[130px]">
@@ -75,7 +92,7 @@ export const News = () => {
             <span>{featuredNews.publishedAt}</span>
             <span className="flex items-center gap-2">
               <FiClock className="w-4 h-4 text-primary" />
-              {featuredNews.readTime} phút đọc
+              {featuredNews.readTime} phút trước
             </span>
           </div>
           <button
@@ -93,7 +110,7 @@ export const News = () => {
             <button
               type="button"
               key={category.id}
-              onClick={() => setSelectedCategory(category.id)}
+              onClick={() => handleCategoryChange(category.id)}
               className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all whitespace-nowrap cursor-pointer ${
                 selectedCategory === category.id
                   ? "bg-primary text-white shadow-md shadow-primary/20"
@@ -109,7 +126,10 @@ export const News = () => {
           <input
             type="text"
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              if (currentPage !== 1) resetPage();
+            }}
             placeholder="Tìm bài viết..."
             className="w-full h-full rounded-xl bg-gray-50 border border-gray-200 text-base text-gray-800 outline-none pl-4 pr-10 focus:border-primary focus:bg-white transition-all"
           />
@@ -118,11 +138,19 @@ export const News = () => {
       </div>
 
       {filteredNews.length > 0 ? (
-        <NewsList newsList={filteredNews} />
+        <NewsList newsList={paginatedItems} />
       ) : (
         <p className="text-center text-gray-600 font-semibold">
           Không tìm thấy bài viết phù hợp.
         </p>
+      )}
+
+      {filteredNews.length > 0 && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
       )}
     </div>
   );

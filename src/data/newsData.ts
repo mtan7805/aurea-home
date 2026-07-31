@@ -102,4 +102,108 @@ export const newsData: INews[] = [
     image:
       "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=80",
   },
+  {
+    id: 8,
+    title: "Cách chọn sofa cho phòng khách căn hộ nhỏ",
+    category: "living-room",
+    categoryName: "Phòng khách",
+    excerpt:
+      "Sofa chân cao, tay vịn mảnh và màu trung tính giúp phòng khách nhỏ nhẹ mắt hơn mà vẫn đủ tiện nghi.",
+    author: "Minh Anh",
+    publishedAt: "24/06/2026",
+    readTime: 4,
+    image:
+      "https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: 9,
+    title: "Bố trí đảo bếp sao cho tiện nấu nướng và tiếp khách",
+    category: "kitchen",
+    categoryName: "Phòng bếp",
+    excerpt:
+      "Đảo bếp cần có kích thước vừa đủ, lối đi thoáng và ánh sáng tập trung để phục vụ nhiều hoạt động cùng lúc.",
+    author: "Hoàng Nam",
+    publishedAt: "20/06/2026",
+    readTime: 5,
+    image:
+      "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: 10,
+    title: "Gỗ walnut trong nội thất: đẹp nhưng cần dùng đúng cách",
+    category: "material",
+    categoryName: "Vật liệu",
+    excerpt:
+      "Walnut mang lại cảm giác ấm và sang, nhưng cần phối cùng ánh sáng và bề mặt sáng để tránh không gian bị nặng.",
+    author: "Aurea Home Team",
+    publishedAt: "18/06/2026",
+    readTime: 6,
+    image:
+      "https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: 11,
+    title: "Phòng ngủ master nên có những khu vực nào?",
+    category: "bedroom",
+    categoryName: "Phòng ngủ",
+    excerpt:
+      "Một phòng ngủ master tốt thường có khu ngủ, lưu trữ, bàn trang điểm và góc thư giãn được phân chia mềm mại.",
+    author: "Minh Anh",
+    publishedAt: "14/06/2026",
+    readTime: 5,
+    image:
+      "https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: 12,
+    title: "Ánh sáng gián tiếp trong nhà ở hiện đại",
+    category: "trend",
+    categoryName: "Xu hướng",
+    excerpt:
+      "Đèn hắt trần, đèn âm tủ và đèn khe giúp tạo chiều sâu cho không gian mà không gây chói mắt.",
+    author: "Hoàng Nam",
+    publishedAt: "10/06/2026",
+    readTime: 4,
+    image:
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: 13,
+    title: "Thiết kế tủ lưu trữ âm tường cho nhà phố",
+    category: "living-room",
+    categoryName: "Phòng khách",
+    excerpt:
+      "Tủ âm tường giúp giảm cảm giác bừa bộn, tận dụng chiều cao và giữ mặt bằng sinh hoạt thoáng hơn.",
+    author: "Aurea Home Team",
+    publishedAt: "05/06/2026",
+    readTime: 5,
+    image:
+      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: 14,
+    title: "Đá nhân tạo có phù hợp với bếp gia đình không?",
+    category: "material",
+    categoryName: "Vật liệu",
+    excerpt:
+      "Đá nhân tạo dễ vệ sinh, nhiều mẫu mã và phù hợp mặt bếp nếu chọn đúng độ dày, màu sắc và cách xử lý cạnh.",
+    author: "Minh Anh",
+    publishedAt: "01/06/2026",
+    readTime: 4,
+    image:
+      "https://images.unsplash.com/photo-1556911261-6bd341186b2f?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: 15,
+    title: "Cách phối rèm, thảm và vải bọc trong phòng ngủ",
+    category: "bedroom",
+    categoryName: "Phòng ngủ",
+    excerpt:
+      "Chất liệu vải ảnh hưởng lớn đến cảm giác nghỉ ngơi, vì vậy cần phối màu và bề mặt theo ánh sáng phòng.",
+    author: "Hoàng Nam",
+    publishedAt: "28/05/2026",
+    readTime: 5,
+    image:
+      "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=900&q=80",
+  },
 ];

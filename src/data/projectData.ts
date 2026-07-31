@@ -135,4 +135,88 @@ export const projectData: IProject[] = [
     description:
       "Biệt thự nghỉ dưỡng lấy cảm hứng từ biển, dùng vật liệu sáng màu và các khung nhìn rộng.",
   },
+  {
+    id: 10,
+    name: "Lakeview Townhouse",
+    category: "townhouse",
+    categoryName: "Nhà phố",
+    area: 210,
+    style: "Modern Rustic",
+    location: "Đà Nẵng",
+    year: 2025,
+    image:
+      "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=900&q=80",
+    description:
+      "Nhà phố ven hồ dùng gỗ walnut, đá sáng và khoảng thông tầng để tạo cảm giác thoáng đãng.",
+  },
+  {
+    id: 11,
+    name: "Saigon Pearl Apartment",
+    category: "apartment",
+    categoryName: "Căn hộ",
+    area: 135,
+    style: "Contemporary",
+    location: "TP. Hồ Chí Minh",
+    year: 2024,
+    image:
+      "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=900&q=80",
+    description:
+      "Không gian căn hộ hướng sông với hệ tủ phẳng, ánh sáng ấm và vật liệu dễ bảo trì.",
+  },
+  {
+    id: 12,
+    name: "Heritage Villa",
+    category: "villa",
+    categoryName: "Biệt thự",
+    area: 410,
+    style: "Neo Classic",
+    location: "Huế",
+    year: 2025,
+    image:
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=900&q=80",
+    description:
+      "Biệt thự phong cách tân cổ điển, tiết chế phào chỉ và nhấn mạnh các chi tiết thủ công tinh xảo.",
+  },
+  {
+    id: 13,
+    name: "Creative Hub Office",
+    category: "office",
+    categoryName: "Văn phòng",
+    area: 520,
+    style: "Open Space",
+    location: "TP. Hồ Chí Minh",
+    year: 2025,
+    image:
+      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=80",
+    description:
+      "Văn phòng sáng tạo với khu làm việc linh hoạt, phòng họp kính và khu thảo luận mở.",
+  },
+  {
+    id: 14,
+    name: "Palm Garden Villa",
+    category: "villa",
+    categoryName: "Biệt thự",
+    area: 360,
+    style: "Tropical Modern",
+    location: "Nha Trang",
+    year: 2024,
+    image:
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80",
+    description:
+      "Biệt thự nghỉ dưỡng kết hợp mảng xanh, vật liệu tự nhiên và không gian sinh hoạt mở.",
+  },
+  {
+    id: 15,
+    name: "An Phú Townhouse",
+    category: "townhouse",
+    categoryName: "Nhà phố",
+    area: 195,
+    style: "Minimal Luxury",
+    location: "TP. Thủ Đức",
+    year: 2023,
+    image:
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=900&q=80",
+    description:
+      "Nhà phố tối giản với hệ lưu trữ âm tường, bếp liền phòng ăn và bảng màu trung tính.",
+  },
 ];
