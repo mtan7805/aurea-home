@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { FiLoader, FiSearch } from "react-icons/fi";
 import ProductCard from "../components/product/ProductCard";
 import { useThrottledValue } from "../hooks/useThrottle";
@@ -10,13 +11,40 @@ import type { IApiCategory } from "../types/apiProduct";
 import type { IProduct } from "../types/product";
 
 export const Products = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [products, setProducts] = useState<IProduct[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
   const [categories, setCategories] = useState<IApiCategory[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState(
+    () => searchParams.get("search") ?? "",
+  );
   const throttledSearchTerm = useThrottledValue(searchTerm, 400);
+
+  useEffect(() => {
+    const searchFromUrl = searchParams.get("search") ?? "";
+    setSearchTerm((current) =>
+      current === searchFromUrl ? current : searchFromUrl,
+    );
+  }, [searchParams]);
+
+  useEffect(() => {
+    const normalizedSearch = throttledSearchTerm.trim();
+    const currentSearch = searchParams.get("search") ?? "";
+
+    if (normalizedSearch === currentSearch) return;
+
+    const nextParams = new URLSearchParams(searchParams);
+
+    if (normalizedSearch) {
+      nextParams.set("search", normalizedSearch);
+    } else {
+      nextParams.delete("search");
+    }
+
+    setSearchParams(nextParams, { replace: true });
+  }, [searchParams, setSearchParams, throttledSearchTerm]);
 
   useEffect(() => {
     let isMounted = true;

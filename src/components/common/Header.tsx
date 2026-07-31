@@ -1,4 +1,4 @@
-import { type MouseEvent, useState } from "react";
+import { type FormEvent, type MouseEvent, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FiChevronDown, FiMenu, FiSearch, FiX } from "react-icons/fi";
 import { GrCart } from "react-icons/gr";
@@ -54,6 +54,13 @@ export const Header = () => {
     {},
   );
 
+  useEffect(() => {
+    if (location.pathname !== "/products") return;
+
+    const params = new URLSearchParams(location.search);
+    setInputText(params.get("search") ?? "");
+  }, [location.pathname, location.search]);
+
   const navLinks: NavLinkItem[] = [
     { name: "Trang chủ", targetId: "banner" },
     { name: "Sản phẩm", path: "/products", dropdownType: "products" },
@@ -68,6 +75,21 @@ export const Header = () => {
 
   const toggleMobileSubmenu = (key: string) => {
     setMobileExpanded((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const keyword = inputText.trim();
+
+    setIsMobileMenuOpen(false);
+    setActiveDropdown(null);
+
+    if (!keyword) {
+      navigate("/products");
+      return;
+    }
+
+    navigate(`/products?search=${encodeURIComponent(keyword)}`);
   };
 
   const handleAccountMenuClick = (index: number) => {
@@ -142,7 +164,10 @@ export const Header = () => {
             <Logo />
           </button>
 
-          <div className="hidden sm:flex relative flex-1 max-w-xl xl:max-w-2xl h-10 xl:h-11 items-center">
+          <form
+            onSubmit={handleSearchSubmit}
+            className="hidden sm:flex relative flex-1 max-w-xl xl:max-w-2xl h-10 xl:h-11 items-center"
+          >
             <input
               onChange={(e) => setInputText(e.target.value)}
               value={inputText}
@@ -151,13 +176,13 @@ export const Header = () => {
               className="w-full h-full rounded-full border-none bg-white/95 text-gray-800 text-sm xl:text-base outline-none pl-4 pr-12 shadow-inner focus:ring-2 focus:ring-primary transition-all"
             />
             <button
-              type="button"
+              type="submit"
               className="absolute right-1.5 h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary-hover transition-colors cursor-pointer"
               aria-label="Tìm kiếm"
             >
               <FiSearch className="w-4 h-4" />
             </button>
-          </div>
+          </form>
 
           <div className="flex items-center gap-3 sm:gap-5 text-white">
             <button
@@ -219,7 +244,10 @@ export const Header = () => {
           </div>
         </div>
 
-        <div className="flex sm:hidden relative w-full h-10 items-center">
+        <form
+          onSubmit={handleSearchSubmit}
+          className="flex sm:hidden relative w-full h-10 items-center"
+        >
           <input
             onChange={(e) => setInputText(e.target.value)}
             value={inputText}
@@ -228,13 +256,13 @@ export const Header = () => {
             className="w-full h-full rounded-full border-none bg-white/95 text-gray-800 text-sm outline-none pl-4 pr-10 shadow-inner"
           />
           <button
-            type="button"
+            type="submit"
             className="absolute right-1 h-7 w-7 rounded-full bg-primary text-white flex items-center justify-center"
             aria-label="Tìm kiếm"
           >
             <FiSearch className="w-3.5 h-3.5" />
           </button>
-        </div>
+        </form>
 
         <nav className="hidden xl:flex items-center justify-between gap-5 pt-1 border-t border-white/10 text-white text-base font-bold relative">
           {navLinks.map((link) => (
