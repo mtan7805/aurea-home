@@ -7,6 +7,7 @@ import { Home } from "../pages/Home";
 import { Products } from "../pages/Products";
 import { Projects } from "../pages/Projects";
 import { News } from "../pages/News";
+import { Cart } from "../pages/Cart";
 import { ComingSoon } from "../pages/ComingSoon";
 
 export default function AppRoutes() {
@@ -20,6 +21,7 @@ export default function AppRoutes() {
         <Route path="/products" element={<Products />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/news" element={<News />} />
+        <Route path="/cart" element={<Cart />} />
         <Route
           path="/calculator"
           element={

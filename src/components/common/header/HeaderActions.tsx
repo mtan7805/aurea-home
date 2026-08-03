@@ -11,6 +11,7 @@ interface HeaderActionsProps {
   isShowAccount: boolean;
   onAccountMenuClick: (index: number) => void;
   onAccountToggle: () => void;
+  onCartClick: () => void;
   onMobileMenuToggle: () => void;
 }
 
@@ -22,12 +23,14 @@ export function HeaderActions({
   isShowAccount,
   onAccountMenuClick,
   onAccountToggle,
+  onCartClick,
   onMobileMenuToggle,
 }: HeaderActionsProps) {
   return (
     <div className="flex items-center gap-3 sm:gap-5 text-white">
       <button
         type="button"
+        onClick={onCartClick}
         className="flex flex-col items-center cursor-pointer hover:text-amber-200 transition-colors relative group"
         aria-label="Giỏ hàng"
       >

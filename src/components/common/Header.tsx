@@ -114,6 +114,11 @@ export const Header = () => {
     closeMenus();
   };
 
+  const handleNavigateCart = () => {
+    navigate("/cart");
+    closeMenus();
+  };
+
   const accountMenuItems = !authUser
     ? ["Đăng nhập", "Đăng ký"]
     : ["Trang cá nhân", "Đăng xuất"];
@@ -151,6 +156,7 @@ export const Header = () => {
             isShowAccount={isShowAccount}
             onAccountMenuClick={handleAccountMenuClick}
             onAccountToggle={() => setIsShowAccount((current) => !current)}
+            onCartClick={handleNavigateCart}
             onMobileMenuToggle={() =>
               setIsMobileMenuOpen((current) => !current)
             }
