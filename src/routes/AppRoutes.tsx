@@ -5,6 +5,7 @@ import { Login } from "../pages/Login";
 import { Register } from "../pages/Register";
 import { Home } from "../pages/Home";
 import { Products } from "../pages/Products";
+import { ProductDetail } from "../pages/ProductDetail";
 import { Projects } from "../pages/Projects";
 import { News } from "../pages/News";
 import { Cart } from "../pages/Cart";
@@ -19,6 +20,7 @@ export default function AppRoutes() {
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<ProductDetail />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/news" element={<News />} />
         <Route path="/cart" element={<Cart />} />

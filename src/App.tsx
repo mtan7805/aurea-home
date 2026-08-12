@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import AppRoutes from "./routes/AppRoutes";
 
 function ScrollToTop() {
@@ -26,6 +27,23 @@ function App() {
     <>
       <ScrollToTop />
       <AppRoutes />
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 1800,
+          style: {
+            borderRadius: "10px",
+            color: "#1f2937",
+            fontWeight: 700,
+          },
+          success: {
+            iconTheme: {
+              primary: "#ad7555",
+              secondary: "#ffffff",
+            },
+          },
+        }}
+      />
     </>
   );
 }

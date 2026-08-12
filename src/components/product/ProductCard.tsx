@@ -1,6 +1,9 @@
 import { useThrottledCallback } from "../../hooks/useThrottle";
+import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 import { useCartStore } from "../../stores/cartStore";
 import type { IProduct } from "../../types/product";
+import { formatCurrency, getDiscountedPrice } from "../../utils/price";
 import { Button } from "../common/Button";
 
 interface ProductCardProps {
@@ -12,25 +15,25 @@ function ProductCard({ product, hideProgress = false }: ProductCardProps) {
   const { name, image, discount, price, sell, total, categoryName } = product;
   const addToCart = useCartStore((state) => state.addToCart);
 
-  const finalPrice =
-    discount > 0 ? Math.round((price * (100 - discount)) / 100) : price;
+  const finalPrice = getDiscountedPrice(price, discount);
 
   const percentSold =
     total > 0 ? Math.min(Math.round((sell / total) * 100), 100) : 0;
 
-  const formatCurrency = (val: number) => {
-    return `${new Intl.NumberFormat("vi-VN").format(val)}đ`;
-  };
-
   const handleAddToCart = useThrottledCallback(() => {
     console.log("Sản phẩm được thêm vào giỏ:", product);
     addToCart(product);
+    toast.success(`Đã thêm "${name}" vào giỏ hàng`);
   }, 700);
 
   return (
     <div className="group w-full bg-white rounded-xl p-3.5 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col justify-between h-full">
       <div>
-        <div className="relative overflow-hidden rounded-lg bg-gray-50 aspect-square">
+        <Link
+          to={`/products/${product.id}`}
+          className="relative block overflow-hidden rounded-lg bg-gray-50 aspect-square"
+          aria-label={`Xem chi tiết ${name}`}
+        >
           <img
             src={image[0]}
             alt={name}
@@ -48,11 +51,14 @@ function ProductCard({ product, hideProgress = false }: ProductCardProps) {
               -{discount}%
             </span>
           )}
-        </div>
+        </Link>
 
-        <h3 className="mt-3 text-base md:text-[17px] font-bold text-gray-800 line-clamp-2 hover:text-primary transition-colors cursor-pointer min-h-[44px]">
+        <Link
+          to={`/products/${product.id}`}
+          className="mt-3 block min-h-[44px] text-base md:text-[17px] font-bold text-gray-800 line-clamp-2 hover:text-primary transition-colors"
+        >
           {name}
-        </h3>
+        </Link>
       </div>
 
       <div className="mt-3">
