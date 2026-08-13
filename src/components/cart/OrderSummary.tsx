@@ -1,4 +1,10 @@
-import { FiArrowRight, FiRefreshCw, FiShield, FiTag, FiTruck } from "react-icons/fi";
+import {
+  FiArrowRight,
+  FiRefreshCw,
+  FiShield,
+  FiTag,
+  FiTruck,
+} from "react-icons/fi";
 import { formatCurrency } from "../../utils/price";
 
 interface OrderSummaryProps {
@@ -16,14 +22,14 @@ export default function OrderSummary({
 
   return (
     <aside className="rounded-xl border border-gray-100 bg-white p-5 shadow-sm lg:sticky lg:top-40">
-      <h2 className="text-2xl font-bold text-gray-900">Tóm tắt đơn hàng</h2>
+      <h2 className="text-2xl font-bold text-gray-900 text-center">Đơn hàng</h2>
 
       <div className="mt-5 space-y-4 border-b border-gray-100 pb-5">
         <div className="flex items-center justify-between gap-4 text-sm">
-          <span className="text-gray-600">
-            Tạm tính ({selectedQuantity} sản phẩm)
+          <span className="text-gray-600">({selectedQuantity} sản phẩm)</span>
+          <span className="font-bold text-gray-900">
+            {formatCurrency(subtotal)}
           </span>
-          <span className="font-bold text-gray-900">{formatCurrency(subtotal)}</span>
         </div>
 
         <div>
@@ -90,7 +96,9 @@ export default function OrderSummary({
         <div className="flex gap-3">
           <FiShield className="mt-1 h-5 w-5 shrink-0 text-primary" />
           <div>
-            <p className="text-sm font-bold text-gray-900">Bảo mật thanh toán</p>
+            <p className="text-sm font-bold text-gray-900">
+              Bảo mật thanh toán
+            </p>
             <p className="text-xs font-semibold text-gray-500">
               Thông tin của bạn được bảo vệ an toàn.
             </p>
