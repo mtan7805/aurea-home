@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { FiLoader } from "react-icons/fi";
 import toast from "react-hot-toast";
@@ -6,44 +6,19 @@ import ProductDetailTabs from "../components/product-detail/ProductDetailTabs";
 import ProductGallery from "../components/product-detail/ProductGallery";
 import ProductInfo from "../components/product-detail/ProductInfo";
 import RelatedProducts from "../components/product-detail/RelatedProducts";
-import { listProduct } from "../data/productData";
-import { fetchApiProducts } from "../services/productService";
+import { useProducts } from "../hooks/useProducts";
 import { useCartStore } from "../stores/cartStore";
-import type { IProduct } from "../types/product";
 
 const MAX_RELATED_PRODUCTS = 4;
 
 export const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const addToCart = useCartStore((state) => state.addToCart);
-  const [products, setProducts] = useState<IProduct[]>(listProduct);
+  const addQuantityToCart = useCartStore((state) => state.addQuantityToCart);
   const [quantity, setQuantity] = useState(1);
-  const [loading, setLoading] = useState(true);
+  const { products, loading } = useProducts({ includeLocalProducts: true });
 
   const productId = Number(id);
-
-  useEffect(() => {
-    let isMounted = true;
-    setLoading(true);
-
-    fetchApiProducts()
-      .then((apiProducts) => {
-        if (!isMounted) return;
-        setProducts([...listProduct, ...apiProducts]);
-      })
-      .catch(() => {
-        if (!isMounted) return;
-        setProducts(listProduct);
-      })
-      .finally(() => {
-        if (isMounted) setLoading(false);
-      });
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
 
   const product = useMemo(
     () => products.find((item) => item.id === productId),
@@ -70,10 +45,7 @@ export const ProductDetail = () => {
   const handleAddQuantityToCart = () => {
     if (!product) return;
 
-    for (let count = 0; count < quantity; count += 1) {
-      addToCart(product);
-    }
-
+    addQuantityToCart(product, quantity);
     toast.success(`Đã thêm ${quantity} sản phẩm vào giỏ hàng`);
   };
 
@@ -111,7 +83,7 @@ export const ProductDetail = () => {
   }
 
   return (
-    <main className="min-h-screen bg-[#faf8f5] px-5 pb-24 pt-44 md:px-[50px] lg:px-[130px]">
+    <main className="min-h-screen bg-[#faf8f5] px-5 pb-24 pt-36 md:px-[50px] md:pt-44 lg:px-[130px]">
       <div className="mx-auto w-full max-w-[1680px]">
         <div className="grid items-start gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(380px,0.78fr)]">
         <ProductGallery images={product.image} name={product.name} />

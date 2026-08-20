@@ -19,17 +19,22 @@ const normalizeImage = (image?: string) => {
   return image.replace(/[[\]"]/g, "") || fallbackProductImage;
 };
 
-export const productService = (item: IApiProduct): IProduct => ({
-  id: item.id,
-  name: item.title,
-  price: item.price * 25000,
-  discount: 30,
-  sell: 0,
-  total: 0,
-  categoryId: item.category?.id,
-  categoryName: item.category?.name,
-  image: [normalizeImage(item.images?.[0])],
-});
+export const productService = (item: IApiProduct): IProduct => {
+  const total = 80 + (item.id % 9) * 15;
+  const sell = Math.min(total, 18 + (item.id % 7) * 13);
+
+  return {
+    id: item.id,
+    name: item.title,
+    price: item.price * 25000,
+    discount: item.id % 4 === 0 ? 0 : 10 + (item.id % 5) * 5,
+    sell,
+    total,
+    categoryId: item.category?.id,
+    categoryName: item.category?.name,
+    image: [normalizeImage(item.images?.[0])],
+  };
+};
 
 export const fetchApiProducts = async (): Promise<IProduct[]> => {
   const res = await fetch(`${API}/products`);
