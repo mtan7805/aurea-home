@@ -1,5 +1,5 @@
 import { useThrottledCallback } from "../../hooks/useThrottle";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useCartStore } from "../../stores/cartStore";
 import type { IProduct } from "../../types/product";
@@ -14,6 +14,7 @@ interface ProductCardProps {
 function ProductCard({ product, hideProgress = false }: ProductCardProps) {
   const { name, image, discount, price, sell, total, categoryName } = product;
   const addToCart = useCartStore((state) => state.addToCart);
+  const navigate = useNavigate();
 
   const finalPrice = getDiscountedPrice(price, discount);
 
@@ -21,9 +22,13 @@ function ProductCard({ product, hideProgress = false }: ProductCardProps) {
     total > 0 ? Math.min(Math.round((sell / total) * 100), 100) : 0;
 
   const handleAddToCart = useThrottledCallback(() => {
-    console.log("Sản phẩm được thêm vào giỏ:", product);
     addToCart(product);
     toast.success(`Đã thêm "${name}" vào giỏ hàng`);
+  }, 700);
+
+  const handleBuyNow = useThrottledCallback(() => {
+    addToCart(product);
+    navigate("/cart");
   }, 700);
 
   return (
@@ -91,7 +96,9 @@ function ProductCard({ product, hideProgress = false }: ProductCardProps) {
           <Button variant="primary" onClick={handleAddToCart}>
             Thêm vào giỏ
           </Button>
-          <Button variant="outline">Mua ngay</Button>
+          <Button variant="outline" onClick={handleBuyNow}>
+            Mua ngay
+          </Button>
         </div>
       </div>
     </div>
